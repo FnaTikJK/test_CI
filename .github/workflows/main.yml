@@ -27,8 +27,8 @@ jobs:
     - name: Build Backend
       uses: docker/build-push-action@v3
       with:
-        context: ../WebApplication2/WebApplication2
-        file: ../WebApplication2/WebApplication2/Dockerfile
+        context: ./WebApplication2/WebApplication2
+        file: ./WebApplication2/WebApplication2/Dockerfile
         push: true
         tags: ${{ env.BACKEND_IMAGE }}
 
@@ -50,11 +50,6 @@ jobs:
         folder-id: ${{ secrets.YC_FOLDER_ID }}
         VM-name: ${{ secrets.YC_VM_NAME }}
         vm-service-account-id: ${{ secrets.YC_SERVICE_ACCOUNT_ID }}
-        vm-cores: 2
-        vm-platform-id: 'standard-v2'
-        vm-memory: 512Mb
-        vm-disk-size: 30Gb
-        vm-core-fraction: 5
         vm-subnet-id: ${{ secrets.YC_SUBNET_ID }}
         user-data-path: './user-data.yaml'
         docker-compose-path: './docker-compose.yaml'
